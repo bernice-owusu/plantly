@@ -1,9 +1,22 @@
-import { View, Text } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
+import { theme } from "../theme";
 
 export default function Profile() {
   return (
-    <View>
-      <Text>Profile</Text>
+    <View style={styles.container}>
+      <Text style={styles.text}>Profile</Text>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: theme.colorWhite,
+  },
+  text: {
+    fontSize: 24,
+  },
+});
