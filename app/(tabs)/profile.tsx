@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet } from "react-native";
-import { theme } from "../theme";
+import { theme } from "@/theme";
 
-export default function Settings() {
+export default function Profile() {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Profile</Text>
