@@ -1,6 +1,7 @@
-import { View, StyleSheet, Button } from "react-native";
+import { View, StyleSheet } from "react-native";
 import { theme } from "@/theme";
 import { useUserStore } from "@/store/userStore";
+import PrimaryButton from "@/components/PrimaryButton";
 
 export default function Profile() {
   const toggleHasOnboarded = useUserStore((state) => state.toggleHasOnboarded);
@@ -10,7 +11,7 @@ export default function Profile() {
   };
   return (
     <View style={styles.container}>
-      <Button title="Back to onboarding" onPress={handleOnPress} />
+      <PrimaryButton title="Back to onboarding" onPress={handleOnPress} />
     </View>
   );
 }
