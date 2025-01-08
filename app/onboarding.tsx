@@ -1,10 +1,11 @@
+import PlantlyImage from "@/components/PlantlyImage";
 import PrimaryButton from "@/components/PrimaryButton";
 import { useUserStore } from "@/store/userStore";
 import { theme } from "@/theme";
 import { LinearGradient } from "expo-linear-gradient";
 import { useRouter } from "expo-router";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
 export default function Onboarding() {
   const router = useRouter();
@@ -22,6 +23,11 @@ export default function Onboarding() {
       style={styles.container}
     >
       <StatusBar style="light" />
+      <View>
+        <Text style={styles.heading}>Plantly</Text>
+        <Text style={styles.tagline}> Keep Your Plants Hydrated and Happy</Text>
+      </View>
+      <PlantlyImage />
       <PrimaryButton title="Let me in!" onPress={handleOnboarding} />
     </LinearGradient>
   );
@@ -30,8 +36,21 @@ export default function Onboarding() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
+    justifyContent: "space-evenly",
     alignItems: "center",
     backgroundColor: theme.colorWhite,
+  },
+
+  heading: {
+    fontSize: 42,
+    color: theme.colorWhite,
+    fontWeight: "bold",
+    marginBottom: 12,
+    textAlign: "center",
+  },
+  tagline: {
+    fontSize: 24,
+    color: theme.colorWhite,
+    textAlign: "center",
   },
 });
