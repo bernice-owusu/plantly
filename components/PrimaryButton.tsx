@@ -33,6 +33,7 @@ const styles = StyleSheet.create({
     color: theme.colorWhite,
     fontSize: 18,
     fontWeight: "bold",
+    textAlign: "center",
   },
   button: {
     backgroundColor: theme.colorGreen,
