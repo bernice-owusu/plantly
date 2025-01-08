@@ -1,11 +1,14 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { create } from "zustand";
+import { persist, createJSONStorage } from "zustand/middleware";
 
 type UserState={
     hasFinishedOnboarding: boolean,
     toggleHasOnboarded: () => void,
 }
 
-export const useUserStore = create<UserState>((set) => ({
+export const useUserStore = create(
+    persist<UserState>((set) => ({
     hasFinishedOnboarding : false,
     toggleHasOnboarded : () => {
         set((state) =>{
@@ -14,4 +17,7 @@ export const useUserStore = create<UserState>((set) => ({
             }
         })
     },
+}), {
+    name: "plantly-user-storage",
+    storage: createJSONStorage(()=> AsyncStorage),
 }));
