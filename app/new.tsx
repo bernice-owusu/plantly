@@ -5,11 +5,13 @@ import {
   ScrollView,
   TextInput,
   Alert,
+  KeyboardAvoidingView,
 } from "react-native";
 import { theme } from "@/theme";
 import PlantlyImage from "@/components/PlantlyImage";
 import PrimaryButton from "@/components/PrimaryButton";
 import { useState } from "react";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 export default function NewScreen() {
   const [name, setName] = useState<string>();
@@ -37,7 +39,7 @@ export default function NewScreen() {
     console.log("Adding plant", name, days);
   };
   return (
-    <ScrollView
+    <KeyboardAwareScrollView
       style={styles.container}
       contentContainerStyle={styles.contentContainer}
       keyboardShouldPersistTaps="handled"
@@ -65,7 +67,7 @@ export default function NewScreen() {
       />
 
       <PrimaryButton title="Add Plant" onPress={handleSubmit} />
-    </ScrollView>
+    </KeyboardAwareScrollView>
   );
 }
 
