@@ -1,12 +1,4 @@
-import {
-  View,
-  Text,
-  StyleSheet,
-  ScrollView,
-  TextInput,
-  Alert,
-  KeyboardAvoidingView,
-} from "react-native";
+import { View, Text, StyleSheet, TextInput, Alert } from "react-native";
 import { theme } from "@/theme";
 import PlantlyImage from "@/components/PlantlyImage";
 import PrimaryButton from "@/components/PrimaryButton";
