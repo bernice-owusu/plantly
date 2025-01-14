@@ -1,4 +1,11 @@
-import { View, Text, StyleSheet, TextInput, Alert } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TextInput,
+  Alert,
+  TouchableOpacity,
+} from "react-native";
 import { theme } from "@/theme";
 import PlantlyImage from "@/components/PlantlyImage";
 import PrimaryButton from "@/components/PrimaryButton";
@@ -6,12 +13,14 @@ import { useState } from "react";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { useRouter } from "expo-router";
 import { usePlantStore } from "@/store/plantStore";
+import * as ImagePicker from "expo-image-picker";
 
 export default function NewScreen() {
   const router = useRouter();
   const addPlant = usePlantStore((state) => state.addPlant);
   const [name, setName] = useState<string>();
   const [days, setDays] = useState<string>();
+  const [imageUri, setImageUri] = useState<string>();
 
   const handleSubmit = () => {
     if (!name) {
@@ -32,8 +41,21 @@ export default function NewScreen() {
       );
     }
 
-    addPlant(name, Number(days));
+    addPlant(name, Number(days), imageUri);
     router.navigate("/");
+  };
+
+  const handleChooseImage = async () => {
+    const result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ["images"],
+      allowsEditing: true,
+      aspect: [1, 1],
+      quality: 1,
+    });
+
+    if (!result.canceled) {
+      setImageUri(result.assets[0].uri);
+    }
   };
   return (
     <KeyboardAwareScrollView
@@ -41,9 +63,13 @@ export default function NewScreen() {
       contentContainerStyle={styles.contentContainer}
       keyboardShouldPersistTaps="handled"
     >
-      <View style={styles.centered}>
-        <PlantlyImage />
-      </View>
+      <TouchableOpacity
+        style={styles.centered}
+        activeOpacity={0.8}
+        onPress={handleChooseImage}
+      >
+        <PlantlyImage imageUri={imageUri} />
+      </TouchableOpacity>
 
       <Text style={styles.label}>Name</Text>
       <TextInput
@@ -92,5 +118,6 @@ const styles = StyleSheet.create({
   },
   centered: {
     alignItems: "center",
+    marginBottom: 24,
   },
 });
