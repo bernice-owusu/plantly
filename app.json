@@ -31,14 +31,20 @@
     },
     "plugins": [
       "expo-router",
-      "expo-image-picker"
+      "expo-image-picker",
+     [ 
+      "expo-font",
+    {
+       "fonts": ["node_modules/@expo-google-fonts/caveat/Caveat_400Regular.ttf"]
+    }
+  ]
     ],
     "extra": {
       "router": {
         "origin": false
       },
       "eas": {
-        "projectId": "d74bb261-69ab-49cb-bbf6-401e8e4565ee"
+        "projectId": "f9155160-81c8-4e51-8177-8a1beb373b52"
       }
     },
     "owner": "bernieadjoa"
