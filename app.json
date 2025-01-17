@@ -2,14 +2,14 @@
   "expo": {
     "name": "plantly",
     "slug": "plantly",
-    "scheme": "plantly",  
+    "scheme": "plantly",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/splash-icon.png",
+      "image": "./assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -20,7 +20,11 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "permissions": [
+        "android.permission.RECORD_AUDIO"
+      ],
+      "package": "com.bernieadjoa.plantly"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -28,6 +32,15 @@
     "plugins": [
       "expo-router",
       "expo-image-picker"
-    ]
+    ],
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "d74bb261-69ab-49cb-bbf6-401e8e4565ee"
+      }
+    },
+    "owner": "bernieadjoa"
   }
 }
