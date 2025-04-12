@@ -53,7 +53,10 @@ ant details](https://github.com/user-attachments/assets/3ae02abc-1c3e-4d6f-936f-
 - Integration with cloud storage for cross-device syncing.
 - Social sharing to showcase your plant collection.
 
-## Contribution
+## Resource
+```bash
+https://kadikraman.github.io/intermediate-react-native-v2-course/docs/intro
+```
 
 We welcome contributions to improve Plantly! Feel free to fork the repository and submit a pull request.
 
